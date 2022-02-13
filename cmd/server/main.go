@@ -9,6 +9,7 @@ import (
 	pb "taggy-gateway/proto"
 	"time"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -31,6 +32,7 @@ func main() {
 	fc := pb.NewFetcherClient(conn)
 
 	r := gin.Default()
+	r.Use(cors.Default())
 
 	r.PATCH("/v1/rss/all", func(c *gin.Context) {
 
