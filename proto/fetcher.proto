@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package fetcher_proto;
+option go_package = "content-parser/cmd/fetcher/proto/fetcher_proto";
+
+service Fetcher {
+  // Sends a greeting
+  rpc FetchAllRSS (FetchAllRSSRequest) returns (FetchAllRSSReply) {}
+}
+
+message FetchAllRSSRequest {
+}
+
+message FetchAllRSSReply {
+  string message = 1;
+}
